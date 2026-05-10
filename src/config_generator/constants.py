@@ -13,16 +13,7 @@ METADATA_EXCLUDE: list[str] = [
 
 # Fallback for tables not present in table_rules.csv
 INGESTION_CONFIGS: dict[str, dict] = {
-    "way4_owsacs_branch": {
-        "ingestion_type": "DELTA",
-        "operation_column": "__op",
-        "order_by_columns": ["__scn", "__optime", "__koffset"],
-        "exclude_columns": ["__scn", "__optime", "__offset", "__op"],
-        "primary_keys": [],
-        "database_src": "",
-        "metadata_exclude": [],
-    },
-    # Add more tables here as needed
+    # Add fallback table configs here when not using table_rules.csv
 }
 
 DELTA_EXTRA_COLUMNS: list[dict] = [
