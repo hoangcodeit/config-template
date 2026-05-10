@@ -11,6 +11,8 @@ def generate_config(
     table_name: str,
     config: TableConfig,
     primary_keys: list[str],
+    columns: list[ColumnDef],
+    exclude_set: set[str],
     out_dir: Path,
     templates_dir: Path,
 ) -> bool:
@@ -25,13 +27,20 @@ def generate_config(
         data["schema"]["raw"]      = f"raw_{table_name}.yml"
         data["schema"]["curated"]  = f"curated_{table_name}.yml"
 
+        exclude_cols = set(config.exclude_columns)
+        dedup_cols = [
+            c.column_name for c in columns
+            if c.column_name not in exclude_set
+            and c.column_name not in exclude_cols
+        ]
+
         proc = data["processing"]
         proc["ingestion_type"]   = config.ingestion_type
         proc["primary_keys"]     = make_flow_list(primary_keys)
+        proc["dedup_columns"]    = make_flow_list(dedup_cols)
         proc["order_by_columns"] = make_flow_list(config.order_by_columns)
         proc["operation_column"] = config.operation_column
         proc["exclude_columns"]  = make_flow_list(config.exclude_columns)
-        proc["dedup_columns"]    = make_flow_list(list(proc.get("dedup_columns") or []))
 
         save_yaml(data, out_dir / f"{table_name}_config.yml")
         return True

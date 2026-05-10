@@ -41,7 +41,7 @@ def run(
         out_dir = output_dir / table_name
         out_dir.mkdir(parents=True, exist_ok=True)
 
-        cfg_ok = generate_config(table_name, config, primary_keys, out_dir, templates_dir)
+        cfg_ok = generate_config(table_name, config, primary_keys, columns, effective_exclude, out_dir, templates_dir)
         raw_ok = generate_raw(table_name, columns, effective_exclude, out_dir, templates_dir)
         cur_ok = generate_curated(table_name, columns, config, effective_exclude, out_dir, templates_dir)
 
