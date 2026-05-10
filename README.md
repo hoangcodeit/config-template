@@ -45,7 +45,7 @@ pip install -r requirements.txt
 python main.py
 
 # Generate configs for one table only
-python main.py --table way4_owsacs_branch
+python main.py --table table_sample
 ```
 
 ### Output per table

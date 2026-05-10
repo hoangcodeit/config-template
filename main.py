@@ -39,7 +39,7 @@ def main() -> int:
         epilog=(
             "examples:\n"
             "  python main.py\n"
-            "  python main.py --table way4_owsacs_branch\n"
+            "  python main.py --table table_sample\n"
         ),
     )
     parser.add_argument("--table", metavar="TABLE_NAME", help="Process a single table only")

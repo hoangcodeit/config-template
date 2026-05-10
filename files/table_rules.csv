@@ -1,2 +1,2 @@
 table_name,primary_key,order_by_columns,operation_column,exclude_columns,database_src,ingestion_type,metadata_exclude
-table_a,"[""id"",""code""]","[""amnd_date"",""amnd_state""]",__op,"[""__scn"",""__optime"",""__offset"",""__op""]",oasis,DELTA,"[""__koptime""]"
+table_sample,"[""id"",""code""]","[""amnd_date"",""amnd_state""]",__op,"[""__scn"",""__optime"",""__offset"",""__op""]",oasis,DELTA,"[""__koptime""]"
