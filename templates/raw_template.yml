@@ -1,0 +1,7 @@
+version: 1.0
+name: 'raw_'
+columns:
+  - name: ''
+    type: ''
+    nullable: true
+    description: ''

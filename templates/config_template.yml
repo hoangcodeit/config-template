@@ -1,0 +1,49 @@
+version: 1.0
+name: ''
+description: Acnt Log records
+metadata:
+  business_owner: Head of customer account
+  technical_owner: Data Platform Engineer
+  contacts:
+    business:
+    - customer-account-data@com.vn
+    technical:
+    - data-platform@com.vn
+input:
+  load_type: hive
+  file_source:
+    file_path: ''
+    file_format: csv
+    options:
+      delimiter: ','
+      header: true
+      encoding: utf-8
+      infer_schema: true
+  hive_source:
+    host:
+    port: 9083
+    database: ''
+    tablename: ''
+    username: hive_user
+    password: ${METASTORE_PASSWORD}
+    scheme: postgresql+psycopg2
+output:
+  catalog: ''
+  database: ''
+  table: ''
+  partition_by: []
+schema:
+  raw: ''
+  curated: ''
+  mode: strict
+  enforcement: block
+processing:
+  ingestion_type: DELTA
+  primary_keys: []
+  dedup_columns: []
+  order_by_columns: []
+  operation_column: ''
+  exclude_columns: []
+  cdc:
+    soft_delete: true
+    delete_column: null

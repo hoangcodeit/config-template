@@ -1,0 +1,5 @@
+column_name,data_type,table_name
+amnd_state,string,table_a
+amnd_date,timestamp,table_a
+amnd_officer,bigint,table_a
+amnd_prev,bigint,table_a
